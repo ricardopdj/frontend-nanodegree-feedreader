@@ -87,7 +87,6 @@ $(function() {
          */
         it('feed has entry', function(done) {
             expect($('.feed .entry').length).toBeGreaterThan(0);
-            done();
         });
     });
 
@@ -99,18 +98,17 @@ $(function() {
         beforeEach(function (done) {
             loadFeed(0, function () {
                 feed = $('.feed').html();
+                loadFeed(1, function () {
+                    done();
+                });
             });
 
-            loadFeed(1, function () {
-                done();
-            });
         });
 
         /* Ensures that the feed content actually changes. */
         it('feed content has changed', function(done) {
             newFeed = $('.feed').html();
             expect(newFeed).not.toEqual(feed);
-            done();
         });
     });
 }());
