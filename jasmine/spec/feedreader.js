@@ -85,7 +85,7 @@ $(function() {
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          */
-        it('feed has entry', function(done) {
+        it('feed has entry', function() {
             expect($('.feed .entry').length).toBeGreaterThan(0);
         });
     });
@@ -106,7 +106,7 @@ $(function() {
         });
 
         /* Ensures that the feed content actually changes. */
-        it('feed content has changed', function(done) {
+        it('feed content has changed', function() {
             newFeed = $('.feed').html();
             expect(newFeed).not.toEqual(feed);
         });
